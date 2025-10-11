@@ -9,6 +9,14 @@ def value_counts(values):
     an int value corresponding to said key
     """
     
+    unique_vals = set(values)
+    counts = {}
+    
+    for val in unique_vals:
+        counts[val] = values.count(val)
+        
+    return counts
+    
 def get(fake_dict, fake_key):
     """
     take in 'fake dict', i.e. [(3, 2), (4, "apple")]
@@ -16,6 +24,12 @@ def get(fake_dict, fake_key):
     if fake_key == 4, return "apple";
     if fake_key does not exist, return None
     """
+    
+    for pair in fake_dict:
+        if pair[0] == fake_key:
+            return pair[1]
+    
+    return None
     
 def add_grade(student_grades, student, grade):
     """
@@ -27,3 +41,18 @@ def add_grade(student_grades, student, grade):
     
     If a student doesn't exist, write something like student_grades['Jerry'] = [grade]
     """
+    
+    if student in student_grades.keys():
+        student_grades[student].append(grade)
+    else:
+        student_grades[student] = [grade]
+
+print(value_counts([3, 3, 4, 5, 7, 7, 7]))
+print(get([(3, "apple"), (4, 5)], 3))
+print(get([(3, "apple"), (4, 5)], 5))
+
+student_grades = {"Bob": [33, 76], "Alice": [55]}
+add_grade(student_grades, "Bob", 99)
+print(student_grades)
+add_grade(student_grades, "Jerry", 44)
+print(student_grades)
