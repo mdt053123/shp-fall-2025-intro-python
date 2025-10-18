@@ -13,5 +13,5 @@ class StringAnalyzer:
         
 str_analyzer = StringAnalyzer("racecar")
 print(str_analyzer.is_palindrome()) # True
-print(str_analyzer.contains_only_vowels) # False
+print(str_analyzer.contains_only_vowels()) # False
 print(str_analyzer.contains("ace")) # True
