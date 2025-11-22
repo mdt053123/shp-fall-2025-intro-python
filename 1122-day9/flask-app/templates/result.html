@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Result - Number Doubler</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .container {
+                background: white;
+                border-radius: 20px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                padding: 50px 60px;
+                max-width: 600px;
+                width: 100%;
+                animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+
+            @keyframes popIn {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.3);
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            h1 {
+                color: #333;
+                text-align: center;
+                margin-bottom: 40px;
+                font-size: 2em;
+            }
+
+            .result-box {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 15px;
+                padding: 40px;
+                text-align: center;
+                margin-bottom: 30px;
+                box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            }
+
+            .calculation {
+                color: white;
+                font-size: 2em;
+                margin-bottom: 20px;
+                font-weight: 300;
+                opacity: 0.95;
+            }
+
+            .number {
+                font-size: 4em;
+                color: white;
+                font-weight: bold;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+                animation: pulse 1s ease-in-out;
+            }
+
+            @keyframes pulse {
+                0%, 100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.1);
+                }
+            }
+
+            .equation {
+                background: #f8f9fa;
+                padding: 25px;
+                border-radius: 12px;
+                margin-bottom: 30px;
+                font-size: 1.5em;
+                color: #555;
+                text-align: center;
+                border: 2px dashed #d0d0d0;
+            }
+
+            .equation-part {
+                font-weight: 600;
+                color: #667eea;
+            }
+
+            .buttons {
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                flex: 1;
+                min-width: 140px;
+                padding: 15px 25px;
+                font-size: 1.1em;
+                font-weight: 600;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                text-align: center;
+                display: inline-block;
+            }
+
+            .btn-primary {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            }
+
+            .btn-secondary {
+                background: #f8f9fa;
+                color: #667eea;
+                border: 2px solid #667eea;
+            }
+
+            .btn-secondary:hover {
+                background: #667eea;
+                color: white;
+                transform: translateY(-2px);
+            }
+
+            .btn:active {
+                transform: translateY(0);
+            }
+
+            .celebration {
+                text-align: center;
+                font-size: 3em;
+                margin-top: 20px;
+                animation: bounce 1s infinite;
+            }
+
+            @keyframes bounce {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🎉 Calculation Complete!</h1>
+            
+            <div class="result-box">
+                <div class="calculation">Double of {{ original_number }}</div>
+                <div class="number">{{ result }}</div>
+            </div>
+
+            <div class="equation">
+                <span class="equation-part">{{ original_number }}</span> 
+                <span>×</span> 
+                <span class="equation-part">2</span> 
+                <span>=</span> 
+                <span class="equation-part">{{ result }}</span>
+            </div>
+
+            <div class="buttons">
+                <a href="/double-number" class="btn btn-primary">Try Another Number</a>
+                <a href="/" class="btn btn-secondary">Go Home</a>
+            </div>
+
+            <div class="celebration">✨🎊✨</div>
+        </div>
+    </body>
+</html>

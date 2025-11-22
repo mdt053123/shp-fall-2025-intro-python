@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Number Doubler</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .container {
+                background: white;
+                border-radius: 20px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                padding: 50px 60px;
+                max-width: 500px;
+                width: 100%;
+                animation: slideIn 0.5s ease-out;
+            }
+
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            h1 {
+                color: #333;
+                text-align: center;
+                margin-bottom: 10px;
+                font-size: 2.5em;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .subtitle {
+                text-align: center;
+                color: #666;
+                margin-bottom: 40px;
+                font-size: 1.1em;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .input-group {
+                position: relative;
+            }
+
+            input[type="number"] {
+                width: 100%;
+                padding: 18px 20px;
+                font-size: 1.2em;
+                border: 2px solid #e0e0e0;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+                outline: none;
+            }
+
+            input[type="number"]:focus {
+                border-color: #667eea;
+                box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            }
+
+            input[type="number"]::placeholder {
+                color: #aaa;
+            }
+
+            button {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                font-size: 1.2em;
+                font-weight: 600;
+                padding: 18px;
+                border: none;
+                border-radius: 12px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            }
+
+            button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            }
+
+            button:active {
+                transform: translateY(0);
+            }
+
+            .decoration {
+                text-align: center;
+                margin-top: 30px;
+                font-size: 3em;
+                opacity: 0.3;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>✨ Number Doubler</h1>
+            <p class="subtitle">Enter any number and watch the magic happen!</p>
+            <form action="/double" method="post">
+                <div class="input-group">
+                    <input type="number" name="num" placeholder="Enter a number" step="any" required autofocus>
+                </div>
+                <button type="submit">Double It! 🚀</button>
+            </form>
+            <div class="decoration">2️⃣✖️</div>
+        </div>
+    </body>
+</html>
