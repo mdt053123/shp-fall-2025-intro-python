@@ -22,14 +22,14 @@ def classify(p, k):
     """
     
     # first check if pt. exists
-    for point, color in points:
+    for point, color in data:
         if point == p:
             return color
         
     # next, collect distances w/ index for tiebreaking + colors
     dists = []
     idx = 0
-    for point, color in points:
+    for point, color in data:
         d = distance(point, p)
         dists.append((d, idx, color))
         idx += 1
@@ -57,5 +57,5 @@ def classify(p, k):
             majority_color = color
             
     # store + return
-    points.append((p, majority_color))
+    data.append((p, majority_color))
     return majority_color
